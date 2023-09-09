@@ -1,11 +1,18 @@
 let urlBase = 'https://api.openweathermap.org/data/2.5/weather'
 let api_key = '7ff9d9cbc57e623b505e441ad526179c'
 let difKelvin = 273.15
+const btnVibra = document.getElementById('vibra');
+btnVibra.classList.add('vibra');
+
 
 document.getElementById('botonBusqueda').addEventListener('click', () => {
     const ciudad = document.getElementById('ciudadEntrada').value
     if (ciudad){
         fetchDatosClima(ciudad)
+        btnVibra.classList.add('vibra');
+        setTimeout(() => {
+            btnVibra.classList.remove('vibra');
+          }, 1500);
     }
 })
 
