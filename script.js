@@ -2,6 +2,8 @@ let urlBase = 'https://api.openweathermap.org/data/2.5/weather'
 let api_key = '7ff9d9cbc57e623b505e441ad526179c'
 let difKelvin = 273.15;
 const ciudadInput = document.getElementById('ciudadEntrada');
+const loader = document.getElementById('loader')
+loader.style.display= 'none'
 
 ciudadInput.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
@@ -16,12 +18,14 @@ ciudadInput.addEventListener('keydown', (event) => {
 document.getElementById('botonBusqueda').addEventListener('click', () => {
     const ciudad = document.getElementById('ciudadEntrada').value
     if(ciudad ){
+        loader.style.display= 'block'
         fetchDatosClima(ciudad)
     }
 })
 
 function fetchDatosClima(ciudad){
     fetch(`${urlBase}?q=${ciudad}&appid=${api_key}`)
+    
     .then(data => data.json())
     .then(data => mostrarDatosClima(data))
 }
