@@ -32,6 +32,7 @@ input {
   font-size: 16px;
   width: 70%;
   border-radius: 10px;
+  outline:none;
 }
 
 button {
@@ -42,6 +43,10 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 6px;
+}
+button:hover{
+  background-color: #430dd8;
+  transform: translate(1px,0.5px);
 }
 
 #datosClima {
